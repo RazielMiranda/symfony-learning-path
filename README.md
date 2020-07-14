@@ -46,13 +46,13 @@ Além de criar novos projetos Symfony, você também trabalhará em projetos já
 
 ### Estrutura do symfony
 
-bin = binarios do symfony
-config = configuração de pacotes
-public = pasta publica do projeto
-src = pasta com os controller
-var = pasta que seria equivalente ao storage do laravel
-vendor = pacotes composer
-.env = arquivo de configuração de ambiente
+    bin = binarios do symfony
+    config = configuração de pacotes
+    public = pasta publica do projeto
+    src = pasta com os controller
+    var = pasta que seria equivalente ao storage do laravel
+    vendor = pacotes composer
+    .env = arquivo de configuração de ambiente
 
 ## Personalização do framework
 
