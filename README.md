@@ -29,22 +29,22 @@ startando um projeto:
     cd my-project/
     symfony server:start
 
-### Configurando um projeto existente do Symfony
+#### Configurando um projeto existente do Symfony
 
 Além de criar novos projetos Symfony, você também trabalhará em projetos já criados por outros desenvolvedores. Nesse caso, você só precisa obter o código do projeto e instalar as dependências com o Composer. Supondo que sua equipe use Git, configure seu projeto com os seguintes comandos:
 
     cd my-project/
     composer install
 
-### Instalando pacotes
+#### Instalando pacotes
 
     composer require logger
 
-### Verificando vulnerabilidades de segurança
+#### Verificando vulnerabilidades de segurança
 
     symfony check:security
 
-### Estrutura do symfony
+#### Estrutura do symfony
 
     bin = binarios do symfony
     config = configuração de pacotes
