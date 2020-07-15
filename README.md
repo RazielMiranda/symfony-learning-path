@@ -95,6 +95,11 @@ Pelas normas PSR o namespace APP aponta para a pasta src que já foi definido no
 
 Após descomentar a rota acima, podemos ir ao nosso ambiente e vamos ver que temos um erro, e como resolver?
 
+### Rotas: Annotations
+
+
+## Controllers
+
 Basta ir ate a pasta 'src' e dentro da pasta 'Controller' criamos um arquivo de Controller que desejamos, pois, o erro é exatamente sobre isso, a rota está batendo e quando invoca o controller ele nao existe, após chegar na pasta e criar o arquivo podemos escrever algo como:
 
 
@@ -141,6 +146,31 @@ Outra forma é criarmos uam variavel e irmos manipulando o objeto com ela:
         }
     }
 
+
+Lidando com a função de forma que a requisição receba dados via GET:
+
+<?php
+
+namespace App\Controller;
+use Symfony\Component\HttpFoundation\Response; -- Adicionar pacote de response
+use Symfony\Component\HttpFoundation\Request;
+
+class DefaultController
+{
+    public function index(Request $req): Response  -- Adicionar o tipo para e o parametro para ficar mais tipado
+    {
+        $resp = new Response();
+        $resp->setContent(json_encode(
+            [
+                "recebido" => $req->get('nome'),
+                "IP" => $req->getClientIp()
+            ]
+        ));
+        $resp->setStatusCode(200);
+
+        return $resp;
+    }
+}
 
 
 
