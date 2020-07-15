@@ -91,12 +91,33 @@ routes.yaml que é o arquivo de rotas principais, e podemos já ver como funcion
     #    path: / -- aqui vai ser a URL que vai bater
     #    controller: App\Controller\DefaultController::index -- aqui é o controller que vai ser chamado, 
    
-Pelas normas PSR o namespace APP aponta para a pasta src que já foi definido no composer.lock
-
-Após descomentar a rota acima, podemos ir ao nosso ambiente e vamos ver que temos um erro, e como resolver?
+Pelas normas PSR o namespace APP aponta para a pasta src que já foi definido no composer.lock. Após descomentar a rota acima, podemos ir ao nosso ambiente e ver a rota funcionando.
 
 ### Rotas: Annotations
 
+Para utilizar a annotations no symfony, primeiro devemos instalar usando o comando
+
+    composer require annotations
+
+Em seguida podemos utilizar elas da seguinte forma direto no controller, primeiro se deve
+adicionar o pacote ao controller
+
+    use Symfony\Component\Routing\Annotation\Route;
+
+para usar as anotações devemos em cima da função desejada colocar sempre em forma de comentario
+
+    /**
+    *
+    */
+
+E para terminar de configurar a rota se usa
+
+    /**
+    * @Route("/", methods={"POST", "GET"})
+    */
+
+Onde o primeiro parametro é a URL que bate, e o segundo parametro é os metodos que
+se usa no formulário.
 
 ## Controllers
 
