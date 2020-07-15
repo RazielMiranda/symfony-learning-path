@@ -54,7 +54,7 @@ Além de criar novos projetos Symfony, você também trabalhará em projetos já
     vendor = pacotes composer
     .env = arquivo de configuração de ambiente
 
-## Personalização do framework: Symfony flex
+### Personalização do framework: Symfony flex
 
 Com o symfony podemos expandir de forma estruturada e sustentável, incrementando funcionalidades conforme a demanda do nosso projeto.
 
@@ -65,3 +65,63 @@ um plugin que é adicionado no composer.lock alterando o fluxo de instalação d
 Existem diversas receitas que podem ser encontradas em:
 
 https://flex.symfony.com/
+
+## Rotas
+
+No symfony é possivel escolher como voce quer construir as suas rotas, as formas de escrever as rotas são:
+
+- YAML
+é um arquivo de configuração de fácil sintaxe, que já vem ativado com o symfony
+
+- Annotations é o mais utilizado no symfony
+Voce configura a rota através de comentarios dentro da função
+
+- PHP
+Forma clássica do PHP, atraves de classes e metodos
+
+- XML
+Uma variante do arquivo de configuração
+
+### Rotas: YAML
+
+Para configurar as rotas no symfony devemos ir até config e la já temos um arquivo chamado
+routes.yaml que é o arquivo de rotas principais, e podemos já ver como funciona a estrutura das rotas:
+
+    #index: -- esse primeiro parametro é o nome da rota
+    #    path: / -- aqui vai ser a URL que vai bater
+    #    controller: App\Controller\DefaultController::index -- aqui é o controller que vai ser chamado, 
+   
+Pelas normas PSR o namespace APP aponta para a pasta src que já foi definido no composer.lock
+
+Após descomentar a rota acima, podemos ir ao nosso ambiente e vamos ver que temos um erro, e como resolver?
+
+Basta ir ate a pasta 'src' e dentro da pasta 'Controller' criamos um arquivo de Controller que desejamos, pois, o erro é exatamente sobre isso, a rota está batendo e quando invoca o controller ele nao existe, após chegar na pasta e criar o arquivo podemos escrever algo como:
+
+
+    <?php
+
+    namespace App\Controller;
+
+    class DefaultController
+    {
+        public function index()
+        {
+        echo "oi";
+        }
+    }
+
+Com isso temos um novo erro sendo o que devemos retornar um objeto do tipo response ficando algo como:
+
+    <?php
+
+    namespace App\Controller;
+    use Symfony\Component\HttpFoundation\Response;
+
+    class DefaultController
+    {
+        public function index()
+        {
+            //echo "oi";
+            return new Response("Roi",200);
+        }
+    }
