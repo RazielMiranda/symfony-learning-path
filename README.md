@@ -54,7 +54,14 @@ Além de criar novos projetos Symfony, você também trabalhará em projetos já
     vendor = pacotes composer
     .env = arquivo de configuração de ambiente
 
-## Personalização do framework
+## Personalização do framework: Symfony flex
 
 Com o symfony podemos expandir de forma estruturada e sustentável, incrementando funcionalidades conforme a demanda do nosso projeto.
 
+O symfony usa o symfony flex que fica escutando palavras chaves nos comandos do composer
+quando essas palavras chaves aparecem, ele coloca as "receitas" em ação que são basicamente
+um plugin que é adicionado no composer.lock alterando o fluxo de instalação dos pacotes.
+
+Existem diversas receitas que podem ser encontradas em:
+
+https://flex.symfony.com/
