@@ -125,3 +125,26 @@ Com isso temos um novo erro sendo o que devemos retornar um objeto do tipo respo
             return new Response("Roi",200);
         }
     }
+
+Outra forma é criarmos uam variavel e irmos manipulando o objeto com ela:
+
+
+    class DefaultController
+    {
+        public function index()
+        {
+            $resp = new Response();
+            $resp->setContent("Roi symfony sou o IZ mario!");
+            $resp->setStatusCode(200);
+
+            return $resp;
+        }
+    }
+
+
+
+
+
+
+
+

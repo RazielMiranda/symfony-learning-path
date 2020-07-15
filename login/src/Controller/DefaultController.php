@@ -7,7 +7,10 @@ class DefaultController
 {
     public function index()
     {
-        //echo "oi";
-        return new Response("Roi",200);
+        $resp = new Response();
+        $resp->setContent("Roi symfony sou o IZ mario!");
+        $resp->setStatusCode(200);
+
+        return $resp;
     }
 }
