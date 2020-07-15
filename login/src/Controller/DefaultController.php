@@ -11,7 +11,8 @@ class DefaultController
         $resp = new Response();
         $resp->setContent(json_encode(
             [
-                "recebido" => $req->get('nome')
+                "recebido" => $req->get('nome'),
+                "IP" => $req->getClientIp()
             ]
         ));
         $resp->setStatusCode(200);
