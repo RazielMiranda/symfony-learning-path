@@ -8,9 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class DefaultController
 {
 
-    /**
-    * @Route("/", methods={"POST", "GET"})
-    */
+
     public function index(Request $req): Response
     {
         $resp = new Response();

@@ -193,7 +193,68 @@ class DefaultController
     }
 }
 
+## CONTROLLERS: API REST
 
+1. Dentro da pasta src/Controller/ criar uma pasta "Api"
+2. Dentro dessa pasta criar o arquivo com o mesmo nome do controller
+3. Escrever código da API algo como:
+
+    <?php
+
+    namespace App\Controller\Api;
+
+    use Symfony\Component\Routing\Annotation\Route;
+    use Symfony\Component\HttpFoundation\JsonResponse;
+
+    /**
+    * @Route("/api/v1", name="api_usuario_")
+    */
+
+    class UsuarioController
+    {
+        /**
+        * @Route("/lista", methods={"GET"}, name="lista")
+        */
+        public function lista(): JsonResponse
+        {
+            return new JsonResponse(["Implementar lista na API", 404]);
+        }
+
+
+        /**
+        * @Route("/cadastra", methods=("POST"), name="cadastra")
+        */
+        public function cadastra(): JsonResponse
+        {
+            return new JsonResponse(["Implentar cadastro na API", 404]);
+        }
+
+    }
+
+
+4. Para debugar as API usamos o comando symfony debug:router dessa forma conseguimos, ver todas as rotas de API
+5. No symfony conseguimos dar nomes as rotas para isso basta adicioanar o parametro name="" na rota:
+
+    /**
+     * @Route("/lista", methods={"GET"}, name="lista")
+     */
+
+6. Colocando o prefixo acima da classe se altera o nome da onde a rota está
+
+    /**
+    * @Route("/api/v1", name="api_usuario_")
+    */
+    class UsuarioController
+
+Conceitos de REST:
+
+- Não retorna tela, e nada diferente de um JSON.
+- Pode se versionar a API com pastas.
+- Se usa a response em JsonResponse.
+- Sempre retorna um codigo de status: 200, 404, 301.
+- Com as API REST deve ser possivel executar um CRUD.
+
+## VIEWS: TWIG
 
 
 
