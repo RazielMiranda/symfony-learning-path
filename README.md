@@ -256,7 +256,16 @@ Conceitos de REST:
 
 ## VIEWS: TWIG
 
+É o gerenciador de template do symfony, como usar?
 
+    composer require twig
+
+- Vai ser adicionado uma pasta chamada templates
+- e um novo arquivo yaml do twig onde se pode customizar ele
+
+Se deve adicionar o extends na classe:
+
+    extends AbstractController
 
 
 

@@ -4,23 +4,24 @@ namespace App\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @Route("/", name="web_usuario_")
  */
-class UsuarioController
+class UsuarioController extends AbstractController
 {
 
     /**
-    * @Route("/", methods={"GET"})
+    * @Route("/", methods={"GET"}, name="index")
     */
     public function index(): Response
     {
-        return new Response("IMplementar form de cadastro");
+        // return $this->render("usuario/form.html.twig");
     }
 
     /**
-    * @Route("/salvar", methods={"POST"})
+    * @Route("/salvar", methods={"POST"}, name="salvar")
     */
     public function salvar(): Response
     {
