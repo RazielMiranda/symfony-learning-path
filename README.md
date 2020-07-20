@@ -351,4 +351,12 @@ Depois podemos criar a entidade com:
 com isso vamos ir criando e configurando a entidade e depois vai ser
 criado um arquivo na pasta entity e outro na repository.
 
+Após configurar a tabela, é so rodar o comando:
 
+    make:migration
+
+ele vai criar um arquivo de migration, que serve para criar o banco de dados.
+
+depois concretiza mandando isso pro bancod e ados:
+
+    doctrine:migrations:migrate
