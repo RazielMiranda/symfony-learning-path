@@ -334,3 +334,21 @@ Apos isso devemos configurar o banco de dados no env:
     DATABASE_URL=sqlite:///%kernel.project_dir%/var/symfony.sqlite3
 
 Pode mudar o caminho das pastas e o nome do arquivo.
+
+Após isso criar o banco de dados com:
+
+    doctrine:database:create
+
+Com isso podemos adicioanr tambem mais utilitario que auxilia na criação dos
+controllers e dos models:
+
+    composer require maker
+
+Depois podemos criar a entidade com:
+
+    make:entity
+
+com isso vamos ir criando e configurando a entidade e depois vai ser
+criado um arquivo na pasta entity e outro na repository.
+
+
