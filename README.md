@@ -305,3 +305,32 @@ refletido noa arquivo base.
 
 Conseguimos tambem recever respostas em json e exibir elas colocando em {{ variavel }}
 com isso conseguimos exibir o valor de uma variavel ou de algo.
+
+
+## MODEL: DOCTRINE
+
+O SYMFONY usa o doctrine como ORM para instalar use:
+
+    composer require orm
+
+ísso é uma receita.
+
+Vai ser criado um arquivo yaml no packages chamado de doctrine, nesse arquivo
+existe todas as confiurações do doctrine e o tipo de banco que ele vai aceitar
+como vai ser escrita os models e os lugares onde será salva as entidades do BD.
+
+Como padrão o ORM configura o mysql como banco de dados.
+
+Tambem será adicionado 3 pastas ao projeto:
+
+- migrations: aqui contem todo o script de modificações no banco de dados, o que tem de ser feito para a tabela ser criada, ou editada. Também versiona as migrations, em questão de estrutura
+
+- entity: é a pasta que guarda as entidades do banco de dados.
+
+- repositories: aqui é onde fica guardado os dados
+
+Apos isso devemos configurar o banco de dados no env:
+
+    DATABASE_URL=sqlite:///%kernel.project_dir%/var/symfony.sqlite3
+
+Pode mudar o caminho das pastas e o nome do arquivo.
