@@ -1,18 +1,8 @@
 {% extends "base.html.twig" %}
+{% block title %}ERRO!{% endblock %}
 
-{% block topo %}
-<div class="topo">
-
-<img src="{{asset('img/logo.png')}}">
-
-</div>
+{% block body %}
+     <div class="alert alert-danger" role="alert">
+          ERRO: ao cadastrar o usuario {{ fulano }}
+     </div>
 {% endblock %}
-
-{% block title %} CADASTRO DE USUARIOS{% endblock %}
-
-        {% block body %}
-            deu errado cadastrar o {{ fulano }}
-        
-        
-        {% endblock %}
-

@@ -1,24 +1,23 @@
 {% extends "base.html.twig" %}
+{% block title %} DASH | CADASTRO DE USUARIOS{% endblock %}
 
-{% block topo %}
-<div class="topo">
-
-<img src="{{asset('img/logo.png')}}">
-
-</div>
-{% endblock %}
-
-{% block title %} CADASTRO DE USUARIOS{% endblock %}
-
-        {% block body %}
+{% block body %}
         <form method="post" action="{{ url('web_usuario_salvar') }}">
-        nome:
-            <input type="text" name="nome">
-            email:
-                    <input type="email" name="email">
-    <button type="submit"> enviar</button>
+            <div class="row">
+
+                <div class="col">
+                    <input  name="nome" type="text" class="form-control" placeholder="Nome" aria-label="Nome">
+                </div>
+
+                <div class="col">
+                    <input name="email" type="email" class="form-control" placeholder="Email" aria-label="Email">
+                </div>
+
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-outline-primary">Enviar</button>
+                </div>
+
+            </div>
         </form>
-        
-        
-        {% endblock %}
+{% endblock %}
 

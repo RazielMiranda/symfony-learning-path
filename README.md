@@ -262,10 +262,46 @@ Conceitos de REST:
 
 - Vai ser adicionado uma pasta chamada templates
 - e um novo arquivo yaml do twig onde se pode customizar ele
+- aqui temos um arquio base que vai ser o template pricipal
+- para usar o template base basta apenas usar o extends
+- com isso consegue usar e gerenciar o conteudo atraves do template
 
 Se deve adicionar o extends na classe:
 
     extends AbstractController
 
+e importar a biblioteca tambem:
 
+    use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+Após a importação da biblioteca e da extensão da classe, pode começar a usar os metodos:
+
+    /**
+    * @Route("/", methods={"GET"}, name="index")
+    */
+    public function index(): Response
+    {
+        return $this->render("usuario/form.html.twig");
+    }
+
+Dessa forma consegeu rendereiza o layout.
+
+### Customizando
+
+    //Extendendo o layout
+    {% extends "base.html.twig" %}
+    
+    {% block title %}ERRO!{% endblock %}
+
+    {% block body %}
+        <div class="alert alert-danger" role="alert">
+            ERRO: ao cadastrar o usuario {{ fulano }}
+        </div>
+    {% endblock %}
+
+Basta extender o layout e ai chamar o bloco que funciona como uma "variavel"
+onde se troca apenas o conteudo dela. tudo que esta no bloco body, será 
+refletido noa arquivo base.
+
+Conseguimos tambem recever respostas em json e exibir elas colocando em {{ variavel }}
+com isso conseguimos exibir o valor de uma variavel ou de algo.

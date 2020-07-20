@@ -17,7 +17,7 @@ class UsuarioController extends AbstractController
     */
     public function index(): Response
     {
-        // return $this->render("usuario/form.html.twig");
+        return $this->render("usuario/form.html.twig");
     }
 
     /**
@@ -25,7 +25,7 @@ class UsuarioController extends AbstractController
     */
     public function salvar(): Response
     {
-        return new Response("Implementar gravação no BD");
+        return $this->render("usuario/sucesso.html.twig", ['fulano' => 'raziel']);
     }
 
 }
