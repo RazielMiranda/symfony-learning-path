@@ -379,6 +379,13 @@ Em seguida configuramos o controller para receber os dados algo como:
 
         dump($usuario);
 
+        //Para salvar no banco de dados
+        $doctrine = $this->getDoctrine()->getManager();
+        $doctrine->persist($usuario);
+        $doctrine->flush();
+
+        dump($usuario);
+
         // dump($res->res->all());
         return $this->render("usuario/sucesso.html.twig", ['fulano' => $data]);
     }
