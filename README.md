@@ -396,3 +396,6 @@ Para exibir na view:
         <li>{{ user }}</li>
     {% endfor %}
 
+Para executar um sql direto no BD:
+
+    symfony console doctrine:query:sql "select * from usuarios";
