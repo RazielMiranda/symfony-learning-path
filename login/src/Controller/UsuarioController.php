@@ -25,7 +25,8 @@ class UsuarioController extends AbstractController
     */
     public function salvar(): Response
     {
-        return $this->render("usuario/sucesso.html.twig", ['fulano' => 'raziel']);
+        $data = 'mudando mensagem';
+        return $this->render("usuario/sucesso.html.twig", ['fulano' => $data]);
     }
 
 }
