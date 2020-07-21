@@ -399,3 +399,34 @@ Para exibir na view:
 Para executar um sql direto no BD:
 
     symfony console doctrine:query:sql "select * from usuarios";
+
+Temos tambem o doctrine query language onde ele abstrai os SQL dos bancos de dados.
+
+## MODEL: FUNÇÕES
+
+Dentro do controller, conseguimos usar os metodos que criamos no Model, para isso dentro do model
+devemos criar uma função e depois chamar essa função no controller.
+
+Dentro da model (Repository):
+
+    //pega todos os usuarios que são maior que 3
+    public function ativos()
+    {
+        return $this->createQueryBuilder('u')
+                    ->andWhere('u.id > :val')
+                    ->setParameter('val')
+                    ->getQuery()
+                    //->getResult();
+                    ->getArrayResult();
+
+    }
+
+Dentro do controller da api:
+
+    public function lista(): JsonResponse
+    {
+        $doctrine = $this->getDoctrine()->getRepository(Usuario::class);
+        dump($doctrine->ativos());
+
+        return new JsonResponse(["Implementar lista na API", 404]);
+    }

@@ -15,6 +15,9 @@ class UsuarioController
      */
     public function lista(): JsonResponse
     {
+        $doctrine = $this->getDoctrine()->getRepository(Usuario::class);
+        dump($doctrine->ativos());
+
         return new JsonResponse(["Implementar lista na API", 404]);
     }
 

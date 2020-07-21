@@ -19,6 +19,15 @@ class UsuarioRepository extends ServiceEntityRepository
         parent::__construct($registry, Usuario::class);
     }
 
+    public function ativos()
+    {
+        return $this->createQueryBuilder('u')
+                    ->andWhere('u.id > :val')
+                    ->setParameter('val')
+                    ->getQuery()
+                    ->getResult();
+    }
+
     // /**
     //  * @return Usuario[] Returns an array of Usuario objects
     //  */
