@@ -3,6 +3,8 @@
 
 {% block body %}
         <div class="alert alert-success" role="alert">
-        SUCESSO: ao cadastrar o usuario {{ fulano }}
+                {% for user in fulano %}
+                        <li>{{ user|e }}</li>
+                {% endfor %}        
         </div>
 {% endblock %}

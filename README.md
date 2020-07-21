@@ -360,3 +360,32 @@ ele vai criar um arquivo de migration, que serve para criar o banco de dados.
 depois concretiza mandando isso pro bancod e ados:
 
     doctrine:migrations:migrate
+
+Em seguida configuramos o controller para receber os dados algo como:
+
+    use Symfony\Component\HttpFoundation\Request;
+    use App\Entity\Usuario;
+
+    /**
+    * @Route("/salvar", methods={"POST"}, name="salvar")
+    */
+    public function salvar(Request $res): Response
+    {
+        $data = $res->request->all();
+
+        $usuario = new Usuario;
+        $usuario->setNome($data['nome']);
+        $usuario->setEmail($data['email']);
+
+        dump($usuario);
+
+        // dump($res->res->all());
+        return $this->render("usuario/sucesso.html.twig", ['fulano' => $data]);
+    }
+
+Para exibir na view:
+
+    {% for user in fulano %}
+        <li>{{ user }}</li>
+    {% endfor %}
+
