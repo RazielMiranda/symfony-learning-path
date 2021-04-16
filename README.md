@@ -170,28 +170,28 @@ Outra forma é criarmos uam variavel e irmos manipulando o objeto com ela:
 
 Lidando com a função de forma que a requisição receba dados via GET:
 
-<?php
+    <?php
 
-namespace App\Controller;
-use Symfony\Component\HttpFoundation\Response; -- Adicionar pacote de response
-use Symfony\Component\HttpFoundation\Request;
+    namespace App\Controller;
+    use Symfony\Component\HttpFoundation\Response; -- Adicionar pacote de response
+    use Symfony\Component\HttpFoundation\Request;
 
-class DefaultController
-{
-    public function index(Request $req): Response  -- Adicionar o tipo para e o parametro para ficar mais tipado
+    class DefaultController
     {
-        $resp = new Response();
-        $resp->setContent(json_encode(
-            [
-                "recebido" => $req->get('nome'),
-                "IP" => $req->getClientIp()
-            ]
-        ));
-        $resp->setStatusCode(200);
+        public function index(Request $req): Response  -- Adicionar o tipo para e o parametro para ficar mais tipado
+        {
+            $resp = new Response();
+            $resp->setContent(json_encode(
+                [
+                    "recebido" => $req->get('nome'),
+                    "IP" => $req->getClientIp()
+                ]
+            ));
+            $resp->setStatusCode(200);
 
-        return $resp;
+            return $resp;
+        }
     }
-}
 
 ## CONTROLLERS: API REST
 
@@ -199,52 +199,52 @@ class DefaultController
 2. Dentro dessa pasta criar o arquivo com o mesmo nome do controller
 3. Escrever código da API algo como:
 
-    <?php
+        <?php
 
-    namespace App\Controller\Api;
+        namespace App\Controller\Api;
 
-    use Symfony\Component\Routing\Annotation\Route;
-    use Symfony\Component\HttpFoundation\JsonResponse;
-
-    /**
-    * @Route("/api/v1", name="api_usuario_")
-    */
-
-    class UsuarioController
-    {
-        /**
-        * @Route("/lista", methods={"GET"}, name="lista")
-        */
-        public function lista(): JsonResponse
-        {
-            return new JsonResponse(["Implementar lista na API", 404]);
-        }
-
+        use Symfony\Component\Routing\Annotation\Route;
+        use Symfony\Component\HttpFoundation\JsonResponse;
 
         /**
-        * @Route("/cadastra", methods=("POST"), name="cadastra")
+        * @Route("/api/v1", name="api_usuario_")
         */
-        public function cadastra(): JsonResponse
-        {
-            return new JsonResponse(["Implentar cadastro na API", 404]);
-        }
 
-    }
+        class UsuarioController
+        {
+            /**
+            * @Route("/lista", methods={"GET"}, name="lista")
+            */
+            public function lista(): JsonResponse
+            {
+                return new JsonResponse(["Implementar lista na API", 404]);
+            }
+
+
+            /**
+            * @Route("/cadastra", methods=("POST"), name="cadastra")
+            */
+            public function cadastra(): JsonResponse
+            {
+                return new JsonResponse(["Implentar cadastro na API", 404]);
+            }
+
+        }
 
 
 4. Para debugar as API usamos o comando symfony debug:router dessa forma conseguimos, ver todas as rotas de API
 5. No symfony conseguimos dar nomes as rotas para isso basta adicioanar o parametro name="" na rota:
 
-    /**
-     * @Route("/lista", methods={"GET"}, name="lista")
-     */
+        /**
+         * @Route("/lista", methods={"GET"}, name="lista")
+         */
 
 6. Colocando o prefixo acima da classe se altera o nome da onde a rota está
 
-    /**
-    * @Route("/api/v1", name="api_usuario_")
-    */
-    class UsuarioController
+        /**
+        * @Route("/api/v1", name="api_usuario_")
+        */
+        class UsuarioController
 
 Conceitos de REST:
 
